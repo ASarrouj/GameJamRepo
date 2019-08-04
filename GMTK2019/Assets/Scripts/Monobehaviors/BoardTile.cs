@@ -55,7 +55,7 @@ public class BoardTile : MonoBehaviour
                 tileSprite.color = Color.gray;
                 selected = true;
             }
-        }
+        }/*
         else
         {
             if (true) //Logic for unselecting goes here
@@ -63,6 +63,6 @@ public class BoardTile : MonoBehaviour
                 tileSprite.color = defaultColor;
                 selected = false;
             }
-        }
+        }*/
     }
 }
