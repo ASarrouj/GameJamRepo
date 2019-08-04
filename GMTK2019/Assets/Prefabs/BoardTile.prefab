@@ -395,3 +395,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 0}
+  boardPos: {x: 0, y: 0}
