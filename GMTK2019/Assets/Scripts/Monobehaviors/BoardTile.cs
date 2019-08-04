@@ -5,13 +5,17 @@ using UnityEngine;
 public class BoardTile : MonoBehaviour
 {
     public GameState gameState;
-    private Transform tileSprite;
-    private Vector2Int boardPos;
+    private SpriteRenderer tileSprite;
+    public Vector2Int boardPos;
+    private bool selected;
+    private Color defaultColor;
 
     // Start is called before the first frame update
     void Start()
     {
-        tileSprite = transform.Find("TileSquare");
+        tileSprite = transform.Find("TileSquare").GetComponent<SpriteRenderer>();
+        defaultColor = new Color(tileSprite.color.r, tileSprite.color.g, tileSprite.color.b);
+        selected = false;
     }
 
     // Update is called once per frame
@@ -27,9 +31,21 @@ public class BoardTile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameState.validDesign(boardPos))
+        if (!selected)
         {
-            tileSprite.GetComponent<SpriteRenderer>().color = Color.gray;
+            if (gameState.validDesign(boardPos))
+            {
+                tileSprite.color = Color.gray;
+                selected = true;
+            }
+        }
+        else
+        {
+            if (true) //Logic for unselecting goes here
+            {
+                tileSprite.color = defaultColor;
+                selected = false;
+            }
         }
     }
 }
