@@ -922,6 +922,7 @@ MonoBehaviour:
   clearButton: {fileID: 633377326}
   camera: {fileID: 519420028}
   tilesLeftText: {fileID: 1158958138}
+  resultText: {fileID: 804349197}
   isPlayerTurn: 0
   initPlace: 0
 --- !u!4 &1254590598

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
     //ArrayList<ArrayList<int>> boardState;
     public int[][] boardState = new int[9][];
+    private int waitTime = 0;
     public BoardTile [][] boardDisplay = new BoardTile[9][];
 	public Battleship player;
 	public Battleship AI;
@@ -389,11 +391,15 @@ public class GameState : MonoBehaviour
 			}
             if (AI.IsBattleshipDestroyed())
 			{
+                resultText.SetActive(true);
+                resultTextMesh.text = "Player\nWins";
 				currentPhase = (int)phase.END;
 			}
 			if (player.IsBattleshipDestroyed())
 			{
-				currentPhase = (int)phase.END;
+                resultText.SetActive(true);
+                resultTextMesh.text = "AI\nWins";
+                currentPhase = (int)phase.END;
 			}
 
 
@@ -403,6 +409,14 @@ public class GameState : MonoBehaviour
                 isPlayerTurn = true;
             }
 
+        }
+        else if (currentPhase == (int)phase.END)
+        {
+            waitTime += 1;
+            if (waitTime >= 300)
+            {
+                SceneManager.LoadScene("TitleScreen");
+            }
         }
 
         
