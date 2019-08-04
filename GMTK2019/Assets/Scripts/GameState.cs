@@ -5,23 +5,29 @@ using UnityEngine;
 public class GameState : MonoBehaviour
 {
     //ArrayList<ArrayList<int>> boardState;
-    public int[][] boardState;// = new int[9];
+    public int[][] boardState = new int[9][];
 
-
+	public GameObject designTilePrefab;
 
    // ArrayList 
     // Start is called before the first frame update
     void Start()
     {
+		//boardState[i] = new int[9];
         for (int i =0; i < 9; i++)
         {
+			boardState[i] = new int[9];
             for (int j = 0; j < 9; j++)
             {
 				boardState[i][j] = (int)designTileState.EMPTY;
 
-                 // create a tile located at I,J
+				GameObject temp  = Instantiate(designTilePrefab, new Vector3(i, j, 0), Quaternion.identity);
+                BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
+				temporary.gameState = this;
+				//temporary.boardPos = new Vector2Int(i, j);
+				// create a tile located at I,J
 
-            }
+			}
         }
     }
 
@@ -31,11 +37,12 @@ public class GameState : MonoBehaviour
 
 	public bool validDesign(Vector2Int shotPos)
 	{
-
-        if (initPlace)
+		Debug.Log(shotPos.x + " " + shotPos.y);
+		return true;
+		if (initPlace)
 		{
 			/// check for one neighbor
-
+			return true;
             if (tileTotal > 17)
 			{
 				return false;
@@ -68,6 +75,7 @@ public class GameState : MonoBehaviour
 					tileTotal++;
 					return true;
 				}
+
 			return false;
 
 		}
