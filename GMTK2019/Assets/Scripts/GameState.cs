@@ -202,6 +202,14 @@ public class GameState : MonoBehaviour
 		}
 	}
 
+	public void submit()
+	{
+        if (tileTotal == 17)
+		{
+            /// do thing
+		}
+	}
+
 	public bool validErase(Vector2Int shotPos)
 	{
     //// not implemented due to time, 
