@@ -269,7 +269,11 @@ public class GameState : MonoBehaviour
 
     public enum phase { TITLE, DESIGN, BATTLE}
 
-
+    public int getGamePhase()
+	{
+		Debug.Log(currentPhase);
+		return currentPhase;
+	}
 
 
     public bool isHit(Vector2Int shotPos)
@@ -287,7 +291,7 @@ public class GameState : MonoBehaviour
 			//AI check if win
 			if (win)
 			{
-				currentPhase = (int)phase.TITLE;
+				//currentPhase = (int)phase.TITLE;
 			}
 
 			return true;
@@ -309,7 +313,7 @@ public class GameState : MonoBehaviour
 
 
 
-    public int currentPhase = (int) phase.DESIGN;
+    private int currentPhase = (int) phase.DESIGN;
 
     // Update is called once per frame
     void Update()

@@ -50,7 +50,9 @@ public class BoardTile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameState.currentPhase == (int)phase.DESIGN)
+        Debug.Log(boardPos.x + " " + boardPos.y);
+        Debug.Log(gameState.getGamePhase());
+        if (gameState.getGamePhase() == (int)phase.DESIGN)
         {
             if (!selected)
             {
@@ -68,7 +70,7 @@ public class BoardTile : MonoBehaviour
                     Deselect();
                 }
             }*/
-        }else if (gameState.currentPhase == (int)phase.BATTLE)
+        }else if (gameState.getGamePhase() == (int)phase.BATTLE)
         {
             gameState.isHit(boardPos);
         }
