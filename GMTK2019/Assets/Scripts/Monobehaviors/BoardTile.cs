@@ -74,8 +74,9 @@ public class BoardTile : MonoBehaviour
             }*/
         }else if (gameState.getGamePhase() == (int)phase.BATTLE)
         {
-            if (!isPlayer && !isShot)
+            if (!isPlayer && !isShot && gameState.isPlayerTurn)
             {
+                gameState.isPlayerTurn = false;
                 isShot = true;
                 gameState.isHit(boardPos);
             }
