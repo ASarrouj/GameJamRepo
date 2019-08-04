@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class Battleship
 {
-    private BattleshipTile[] battleshipTiles;
+    private List<BattleshipTile> battleshipTiles;
     public int unhitTilesLeft;
 
-    public Battleship()
+    public Battleship(int[][] boardState)
     {
-        battleshipTiles = new BattleshipTile[17];
+        battleshipTiles = new List<BattleshipTile>();
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (boardState[i][j] == 1)
+                {
+                    battleshipTiles.Add(new BattleshipTile(new Vector2Int(i, j)));
+                }
+            }
+        }
         unhitTilesLeft = 17;
     }
 
