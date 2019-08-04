@@ -322,8 +322,6 @@ public class GameState : MonoBehaviour
 	{
 		
 		Vector2Int shotPos = new Vector2Int(Random.Range(0, 8), Random.Range(0, 8));
-		//shotPos.x = Random.Range(0, 8);
-		//shotPos.y = Random.Range(0, 8);
 		player.CheckIfShotHit(shotPos);
 		return true;
 	}
@@ -352,7 +350,11 @@ public class GameState : MonoBehaviour
 				initializeBattleScreen();
 			}
 
-
+            if (!isPlayerTurn)
+            {
+                AIMove();
+                isPlayerTurn = true;
+            }
 
         }
 
