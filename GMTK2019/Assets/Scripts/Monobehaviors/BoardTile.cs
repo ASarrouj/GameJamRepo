@@ -50,20 +50,29 @@ public class BoardTile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!selected)
+        if (gameState.currentPhase == (int)phase.DESIGN)
         {
-            if (gameState.validDesign(boardPos))
+            if (!selected)
             {
-                tileSprite.color = Color.gray;
-                selected = true;
+                if (gameState.validDesign(boardPos))
+                {
+                    tileSprite.color = Color.gray;
+                    selected = true;
+                }
             }
-        }/*
-        else
+            /*
+            else
+            {
+                if (true) //Logic for unselecting goes here
+                {
+                    Deselect();
+                }
+            }*/
+        }else if (gameState.currentPhase == (int)phase.BATTLE)
         {
-            if (true) //Logic for unselecting goes here
-            {
-                Deselect();
-            }
-        }*/
+            gameState.isHit(boardPos);
+        }
     }
+
+    public enum phase { TITLE, DESIGN, BATTLE }
 }
