@@ -276,7 +276,7 @@ public class GameState : MonoBehaviour
 	{
 
 
-		return true;
+		///return true;
 		bool shotResult = AI.CheckIfShotHit(shotPos);
         if (shotResult == true)
 		{
