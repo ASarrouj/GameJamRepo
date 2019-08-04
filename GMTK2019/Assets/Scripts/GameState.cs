@@ -267,7 +267,7 @@ public class GameState : MonoBehaviour
 	}
 	private bool initBattle = false;
 
-    enum phase { TITLE, DESIGN, BATTLE}
+    public enum phase { TITLE, DESIGN, BATTLE}
 
 
 
@@ -280,8 +280,8 @@ public class GameState : MonoBehaviour
 		bool shotResult = AI.CheckIfShotHit(shotPos);
         if (shotResult == true)
 		{
-			
-			bool win = false;
+
+			bool win = IsBattleshipDestroyed();
 			//AI check if win
 			if (win)
 			{
