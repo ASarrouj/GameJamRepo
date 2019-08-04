@@ -14,8 +14,8 @@ public class GameState : MonoBehaviour
 	public GameObject Board;
     public Button submitButton, clearButton;
     public GameObject camera;
-    public GameObject tilesLeftText;
-    private TextMesh tilesLeftMesh;
+    public GameObject tilesLeftText, resultText;
+    private TextMesh tilesLeftMesh, resultTextMesh;
     private CameraManager camManager;
     public bool isPlayerTurn;
 
@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour
     {
         camManager = camera.GetComponent<CameraManager>();
         tilesLeftMesh = tilesLeftText.GetComponent<TextMesh>();
+        resultTextMesh = resultText.GetComponent<TextMesh>();
 		//boardState[i] = new int[9];
         for (int i =0; i < 9; i++)
         {
