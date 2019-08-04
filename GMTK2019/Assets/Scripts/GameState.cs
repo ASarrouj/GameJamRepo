@@ -7,6 +7,8 @@ public class GameState : MonoBehaviour
     //ArrayList<ArrayList<int>> boardState;
     public int[][] boardState = new int[9][];
     public BoardTile [][] boardDisplay = new BoardTile[9][];
+	public Battleship player;
+	public Battleship AI;
 	public GameObject designTilePrefab;
 	public GameObject Board;
    // ArrayList 
@@ -33,7 +35,7 @@ public class GameState : MonoBehaviour
 
 			}
         }
-		generateAIBoard();
+		
 
 	}
 	public int[][] boardStateAI = new int[9][];
@@ -206,7 +208,10 @@ public class GameState : MonoBehaviour
 	{
         if (tileTotal == 17)
 		{
-            /// do thing
+			/// do thing
+			generateAIBoard();
+
+			currentPhase = (int)phase.BATTLE;
 		}
 	}
 
@@ -217,6 +222,13 @@ public class GameState : MonoBehaviour
 		tileTotal--;
 		return true;  
 	}
+
+    public void initializeBattleScreen()
+	{
+		initBattle = true;
+	}
+	private bool initBattle = false;
+
     enum phase { TITLE, DESIGN, BATTLE}
 
     private int currentPhase = (int) phase.TITLE;
@@ -224,32 +236,30 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		
+		if (currentPhase == (int)phase.TITLE)
+        {/// show a title screen
 
-        if (currentPhase == (int)phase.TITLE)
+		}
+		else if (currentPhase == (int)phase.DESIGN)
+        {/// design a ship
+
+
+		}
+		else if (currentPhase == (int)phase.BATTLE)
         {
+            /// battle
+			if (initBattle == false)
+			{
+				initializeBattleScreen();
+			}
+
+
 
         }
-        else if (currentPhase == (int)phase.DESIGN)
-        {
 
-        }
-        else if (currentPhase == (int)phase.BATTLE)
-        {
-
-        }
-
-        /// show a title screen
-        ///
-
-        /// design a ship
-        ///
-
-        /// first create a board
-        ///
-
-        /// design phase
-        ///
-        //if 
+        
+        
 
 
     }
