@@ -298,7 +298,7 @@ public class GameState : MonoBehaviour
 	}
 
 
-    public int currentPhase = (int) phase.TITLE;
+    public int currentPhase = (int) phase.DESIGN;
 
     // Update is called once per frame
     void Update()
