@@ -17,10 +17,12 @@ public class GameState : MonoBehaviour
         for (int i =0; i < 9; i++)
         {
 			boardState[i] = new int[9];
+			boardStateAI[i] = new int[9];
 			boardDisplay[i] = new BoardTile[9];
 			for (int j = 0; j < 9; j++)
             {
 				boardState[i][j] = (int)designTileState.EMPTY;
+				boardStateAI[i][j] = (int)designTileState.EMPTY;
 
 				GameObject temp  = Instantiate(designTilePrefab, new Vector3(i, j, 0), Quaternion.identity, Board.transform);
                 BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
@@ -32,6 +34,10 @@ public class GameState : MonoBehaviour
 			}
         }
     }
+	public int[][] boardStateAI = new int[9][];
+	public BoardTile[][] boardDisplayAI = new BoardTile[9][];
+
+	//void generateAIBoard();
 
 	public bool initPlace = false;
 	int tileTotal = 0;
@@ -39,9 +45,13 @@ public class GameState : MonoBehaviour
 
 	public bool validDesign(Vector2Int shotPos)
 	{
-		Debug.Log(shotPos.x + " " + shotPos.y);
+		//Debug.Log(shotPos.x + " " + shotPos.y);
 		//return true;
-		if (initPlace)
+		if (boardState[shotPos.x][shotPos.y] == (int)designTileState.OCCUPIED)
+		{
+			return false;
+		}
+			if (initPlace)
 		{
 			/// check for one neighbor
 			//return true;
