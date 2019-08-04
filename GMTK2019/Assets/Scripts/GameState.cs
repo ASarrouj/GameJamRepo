@@ -314,11 +314,10 @@ public class GameState : MonoBehaviour
     public bool AIMove()
 	{
 		
-		Vector2Int shotPos;
-		shotPos.X = Random.Range(0, 8);
-		shotPos.Y = Random.Range(0, 8);
-		player.CheckIfShotHit(Vector2Int shotPos)
-
+		Vector2Int shotPos = new Vector2Int(Random.Range(0, 8), Random.Range(0, 8));
+		//shotPos.x = Random.Range(0, 8);
+		//shotPos.y = Random.Range(0, 8);
+		player.CheckIfShotHit(shotPos);
 		return true;
 	}
 
