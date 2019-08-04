@@ -36,7 +36,9 @@ public class GameState : MonoBehaviour
                 BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
 				temporary.gameState = this;
 				temporary.boardPos = new Vector2Int(i, j);
-				boardDisplay[i][j] = temporary;
+
+				temporary.isPlayer = true;
+	            boardDisplay[i][j] = temporary;
 				// create a tile located at I,J
 
 			}
@@ -256,6 +258,7 @@ public class GameState : MonoBehaviour
 				BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
 				temporary.gameState = this;
 				temporary.boardPos = new Vector2Int(i, j);
+				temporary.isPlayer = false;
 				boardDisplayAI[i][j] = temporary;
 				// create a tile located at I,J
 
@@ -290,7 +293,7 @@ public class GameState : MonoBehaviour
 	}
 
 
-    private int currentPhase = (int) phase.TITLE;
+    public int currentPhase = (int) phase.TITLE;
 
     // Update is called once per frame
     void Update()
