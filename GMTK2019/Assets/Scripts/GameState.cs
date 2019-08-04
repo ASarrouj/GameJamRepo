@@ -142,7 +142,7 @@ public class GameState : MonoBehaviour
 		{
 			/// check for one neighbor
 			//return true;
-            if (tileTotal > 17)
+            if (tileTotal > 16)
 			{
 				Debug.Log("too many");
 				return false;
@@ -206,9 +206,12 @@ public class GameState : MonoBehaviour
 
 	public void submit()
 	{
-        if (tileTotal == 17)
+		Debug.Log("pressed submit");
+		Debug.Log(tileTotal); ;
+		if (tileTotal == 17)
 		{
 			/// do thing
+			Debug.Log("submitted");
 			generateAIBoard();
 
 			currentPhase = (int)phase.BATTLE;
@@ -226,9 +229,28 @@ public class GameState : MonoBehaviour
     public void initializeBattleScreen()
 	{
 
-		player = Battleship(boardState);
-		AI = Battleship(boardStateAI);
+		player = new Battleship(boardState);
+		AI = new Battleship(boardStateAI);
 		initBattle = true;
+		for (int i = 0; i < 9; i++)
+		{
+			//boardState[i] = new int[9];
+			//boardStateAI[i] = new int[9];
+		    boardDisplayAI[i] = new BoardTile[9];
+			for (int j = 0; j < 9; j++)
+			{
+				//boardState[i][j] = (int)designTileState.EMPTY;
+				//boardStateAI[i][j] = (int)designTileState.EMPTY;
+
+				GameObject temp = Instantiate(designTilePrefab, new Vector3(i - 4f  + 12f, j - 4f, 0), Quaternion.identity, Board.transform);
+				BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
+				temporary.gameState = this;
+				temporary.boardPos = new Vector2Int(i, j);
+				boardDisplayAI[i][j] = temporary;
+				// create a tile located at I,J
+
+			}
+		}
 	}
 	private bool initBattle = false;
 
