@@ -278,7 +278,7 @@ public class GameState : MonoBehaviour
 	}
 	private bool initBattle = false;
 
-    public enum phase { TITLE, DESIGN, BATTLE}
+    public enum phase { TITLE, DESIGN, BATTLE, END}
 
     public int getGamePhase()
 	{
@@ -386,8 +386,17 @@ public class GameState : MonoBehaviour
 			{
 				initializeBattleScreen();
 			}
+            if (AI.IsBattleshipDestroyed())
+			{
+				currentPhase = (int)phase.END;
+			}
+			if (player.IsBattleshipDestroyed())
+			{
+				currentPhase = (int)phase.END;
+			}
 
-            if (!isPlayerTurn)
+
+			if (!isPlayerTurn)
             {
                 AIMove();
                 isPlayerTurn = true;
