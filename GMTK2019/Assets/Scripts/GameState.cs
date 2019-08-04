@@ -281,14 +281,19 @@ public class GameState : MonoBehaviour
         if (shotResult == true)
 		{
 
-			bool win = IsBattleshipDestroyed();
+			//boardDisplayAI[shotPos.x][shotPos.y].DisplayHit();
+
+			bool win = AI.IsBattleshipDestroyed();
 			//AI check if win
 			if (win)
 			{
 				currentPhase = (int)phase.TITLE;
 			}
 
+			return true;
+
 		}
+		return false;
 
 	}
 
