@@ -34,6 +34,7 @@ public class BoardTile : MonoBehaviour
     public void Deselect()
     {
         tileSprite.color = defaultColor;
+        selected = false;
     }
 
     public void DisplayMiss()
@@ -60,8 +61,7 @@ public class BoardTile : MonoBehaviour
         {
             if (true) //Logic for unselecting goes here
             {
-                tileSprite.color = defaultColor;
-                selected = false;
+                Deselect();
             }
         }*/
     }
