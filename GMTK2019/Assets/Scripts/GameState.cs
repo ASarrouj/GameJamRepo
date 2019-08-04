@@ -44,24 +44,28 @@ public class GameState : MonoBehaviour
 				if ( boardState[shotPos.x + 1][shotPos.y] == (int) designTileState.OCCUPIED)
 				{
 					boardState[shotPos.x][shotPos.y] = (int) designTileState.OCCUPIED;
+					tileTotal++;
 					return true;
 				}
 			if (shotPos.x > 0)
 				if (boardState[shotPos.x - 1][shotPos.y] ==  (int) designTileState.OCCUPIED )
 				{
 					boardState[shotPos.x][shotPos.y] = (int)designTileState.OCCUPIED;
+					tileTotal++;
 					return true;
 				}
 			if(shotPos.y > 0)
 				if (boardState[shotPos.x][shotPos.y -1] == (int)designTileState.OCCUPIED)
 			    {
 					boardState[shotPos.x][shotPos.y] = (int)designTileState.OCCUPIED;
+					tileTotal++;
 					return true;
 			    }
 			if (shotPos.y < 8)
 				if (boardState[shotPos.x][shotPos.y + 8] == (int)designTileState.OCCUPIED)
 				{
 					boardState[shotPos.x][shotPos.y] = (int)designTileState.OCCUPIED;
+					tileTotal++;
 					return true;
 				}
 			return false;
@@ -71,6 +75,7 @@ public class GameState : MonoBehaviour
 		{
 			boardState[shotPos.x][shotPos.y] = (int)designTileState.OCCUPIED;
 			initPlace = true;
+			tileTotal++;
 			return true;
 		}
 	}
