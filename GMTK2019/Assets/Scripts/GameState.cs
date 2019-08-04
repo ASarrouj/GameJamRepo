@@ -240,7 +240,7 @@ public class GameState : MonoBehaviour
             instructionsText.SetActive(false);
             designText.SetActive(false);
             tilesLeftText.SetActive(false);
-            yourBoardText.SetActive(true);
+            //yourBoardText.SetActive(true);
             turnText.SetActive(true);
             camManager.BeginInterpolation();
 
