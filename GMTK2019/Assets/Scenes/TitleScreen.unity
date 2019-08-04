@@ -696,16 +696,7 @@ MonoBehaviour:
     to create a new strategy in order to win this game.\r\n\r\nIn this sense, this
     game is an experiment.  Can creating a battleship with only one improbably battleship
     allow for a more fun experience?  Will this have an equally optimizable strategy
-    that will just have to be learned?   We made this game to find out. \r\n\r\n\r\nDESIGN
-    PHASE:\r\nDesign your unoship\r\n\r\nIn unoship, you have 17 tiles to design one
-    giant, improbable battleship.  Start by choosing a starting square for you ship,
-    and then building out 16 additional tiles from there.  Tiles will only be placeable
-    if they are adjacent to other tiles, and you have not exceeded the tile limit.
-    Press clear to reset the design space, press submit to check your ship design
-    and enter the battle.  can you design an evasive battleship?\r\n\r\n\r\nBattle\r\n\r\nSelect
-    an opponent's tile to fire and see if you get a hit!\r\n\r\nThe opponent is selecting
-    its move.\r\n\r\nThat tile has already been fired upon\r\n\r\nYou win!\r\nYou
-    lose!"
+    that will just have to be learned?   We made this game to find out. \r\n\r\n\r"
 --- !u!222 &602785811
 CanvasRenderer:
   m_ObjectHideFlags: 0
