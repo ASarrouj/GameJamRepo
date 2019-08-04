@@ -239,6 +239,7 @@ public class GameState : MonoBehaviour
             clearButton.gameObject.SetActive(false);
             instructionsText.SetActive(false);
             designText.SetActive(false);
+            tilesLeftText.SetActive(false);
             yourBoardText.SetActive(true);
             turnText.SetActive(true);
             camManager.BeginInterpolation();
