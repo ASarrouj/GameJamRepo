@@ -21,7 +21,7 @@ public class GameState : MonoBehaviour
             {
 				boardState[i][j] = (int)designTileState.EMPTY;
 
-				GameObject temp  = Instantiate(designTilePrefab, new Vector3(i, j, 0), Quaternion.identity, Board.transform);
+				GameObject temp  = Instantiate(designTilePrefab, new Vector3(i - 4f, j - 4f, 0), Quaternion.identity, Board.transform);
                 BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
 				temporary.gameState = this;
 				temporary.boardPos = new Vector2Int(i, j);
