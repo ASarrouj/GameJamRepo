@@ -299,11 +299,12 @@ public class GameState : MonoBehaviour
 		{
 
 			boardDisplayAI[shotPos.x][shotPos.y].DisplayHit();
-
-			bool win = AI.IsBattleshipDestroyed();
+            
+			bool win1 = AI.IsBattleshipDestroyed();
 			//AI check if win
-			if (win)
+			if (win1)
 			{
+				Debug.Log("player wins");
 				//currentPhase = (int)phase.TITLE;
 			}
 
@@ -311,7 +312,16 @@ public class GameState : MonoBehaviour
 
 		}
 
+
 		boardDisplayAI[shotPos.x][shotPos.y].DisplayMiss();
+
+		bool win = AI.IsBattleshipDestroyed();
+		//AI check if win
+		if (win)
+		{
+			Debug.Log("player wins");
+			//currentPhase = (int)phase.TITLE;
+		}
 		return false;
 
 	}
@@ -326,10 +336,11 @@ public class GameState : MonoBehaviour
 		{
 			boardDisplay[shotPos.x][shotPos.y].DisplayHit();
 
-			bool win = player.IsBattleshipDestroyed();
+			bool win2 = player.IsBattleshipDestroyed();
 			//AI check if win
-			if (win)
+			if (win2)
 			{
+				Debug.Log("AI wins");
 				//currentPhase = (int)phase.TITLE;
 			}
 
@@ -338,6 +349,16 @@ public class GameState : MonoBehaviour
 		else
 		{
 			boardDisplay[shotPos.x][shotPos.y].DisplayMiss();
+		}
+
+		bool win = player.IsBattleshipDestroyed();
+		//AI check if win
+		if (win)
+		{
+			Debug.Log("AI wins");
+            
+			///quit();
+			//currentPhase = (int)phase.TITLE;
 		}
 		return true;
 	}
