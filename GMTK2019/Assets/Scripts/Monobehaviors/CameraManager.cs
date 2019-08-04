@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
         targetPos = new Vector3(6f, 0, -10f);
         CameraComponent = GetComponent<Camera>();
         originalOrthoSize = CameraComponent.orthographicSize;
-        targetOrthoSize = 10f;
+        targetOrthoSize = 8f;
     }
 
     // Update is called once per frame
