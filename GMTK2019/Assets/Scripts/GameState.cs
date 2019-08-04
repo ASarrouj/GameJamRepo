@@ -53,6 +53,7 @@ public class GameState : MonoBehaviour
 	{
 		int startPosX = Random.Range(0, 8);
 		int startPosY = Random.Range(0, 8);
+		Debug.Log(startPosX + " " + startPosY);
 		int x = startPosX;
 		int y = startPosY;
 		boardStateAI[startPosX][startPosY] = (int)designTileState.OCCUPIED;
@@ -309,8 +310,11 @@ public class GameState : MonoBehaviour
 
     public bool AIMove()
 	{
-		int X = Random.Range(0, 8);
-		int Y = Random.Range(0, 8);
+		
+		Vector2Int shotPos;
+		shotPos.X = Random.Range(0, 8);
+		shotPos.Y = Random.Range(0, 8);
+		player.CheckIfShotHit(Vector2Int shotPos)
 
 		return true;
 	}
