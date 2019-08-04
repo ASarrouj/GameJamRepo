@@ -6,7 +6,7 @@ public class GameState : MonoBehaviour
 {
     //ArrayList<ArrayList<int>> boardState;
     public int[][] boardState = new int[9][];
-
+    public BoardTile [][] boardDisplay = new BoardTile[9][];
 	public GameObject designTilePrefab;
 	public GameObject Board;
    // ArrayList 
@@ -17,7 +17,8 @@ public class GameState : MonoBehaviour
         for (int i =0; i < 9; i++)
         {
 			boardState[i] = new int[9];
-            for (int j = 0; j < 9; j++)
+			boardDisplay[i] = new BoardTile[9];
+			for (int j = 0; j < 9; j++)
             {
 				boardState[i][j] = (int)designTileState.EMPTY;
 
@@ -25,6 +26,7 @@ public class GameState : MonoBehaviour
                 BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
 				temporary.gameState = this;
 				temporary.boardPos = new Vector2Int(i, j);
+				boardDisplay[i][j] = temporary;
 				// create a tile located at I,J
 
 			}
@@ -86,6 +88,29 @@ public class GameState : MonoBehaviour
 			tileTotal++;
 			return true;
 		}
+	}
+
+
+	public void clear()
+	{
+		
+		tileTotal=0;
+		for (int i = 0; i < 9; i++)
+		{
+            for (int j = 0; j < 9; j++)
+			{
+				boardState[i][j] = (int)designTileState.EMPTY;
+				boardDisplay[i][j].Deselect();
+			}
+		}
+	}
+
+	public bool validErase(Vector2Int shotPos)
+	{
+    //// not implemented due to time, 
+
+		tileTotal--;
+		return true;  
 	}
     enum phase { TITLE, DESIGN, BATTLE}
 
