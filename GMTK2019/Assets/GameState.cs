@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameState : MonoBehaviour
 {
     //ArrayList<ArrayList<int>> boardState;
-    public int[][] boardState = new int[9];
+    public int[][] boardState;// = new int[9];
 
 
 
-    ArrayList 
+   // ArrayList 
     // Start is called before the first frame update
     void Start()
     {
