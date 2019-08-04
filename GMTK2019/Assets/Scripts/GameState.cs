@@ -329,12 +329,22 @@ public class GameState : MonoBehaviour
 
 	}
 
+	private Dictionary<Vector2Int, int> shots = new Dictionary<Vector2Int, int>();
 
 
     public bool AIMove()
 	{
 		
-		Vector2Int shotPos = new Vector2Int(Random.Range(0, 8), Random.Range(0, 8));
+		Vector2Int shotPos = new Vector2Int(Random.Range(0, 9), Random.Range(0, 9));
+        while (shots.ContainsKey(shotPos))
+		{
+			shotPos = new Vector2Int(Random.Range(0, 9), Random.Range(0, 9));
+		}
+		shots[shotPos] = 1;
+
+
+			
+
 		if (player.CheckIfShotHit(shotPos))
 		{
 			boardDisplay[shotPos.x][shotPos.y].DisplayHit();
