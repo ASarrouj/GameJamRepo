@@ -129,10 +129,11 @@ public class GameState : MonoBehaviour
 
 	public bool validDesign(Vector2Int shotPos)
 	{
-		//Debug.Log(shotPos.x + " " + shotPos.y);
+		Debug.Log(shotPos.x + " " + shotPos.y);
 		//return true;
 		if (boardState[shotPos.x][shotPos.y] == (int)designTileState.OCCUPIED)
 		{
+			Debug.Log("occupied");
 			return false;
 		}
 			if (initPlace)
@@ -141,6 +142,7 @@ public class GameState : MonoBehaviour
 			//return true;
             if (tileTotal > 17)
 			{
+				Debug.Log("too many");
 				return false;
 			}
             if (shotPos.x < 8)
@@ -171,7 +173,7 @@ public class GameState : MonoBehaviour
 					tileTotal++;
 					return true;
 				}
-
+			Debug.Log("no valid neighbors");
 			return false;
 
 		}
@@ -189,6 +191,7 @@ public class GameState : MonoBehaviour
 	{
 		
 		tileTotal=0;
+		initPlace = false;
 		for (int i = 0; i < 9; i++)
 		{
             for (int j = 0; j < 9; j++)
