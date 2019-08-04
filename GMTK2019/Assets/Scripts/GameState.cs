@@ -8,7 +8,7 @@ public class GameState : MonoBehaviour
     public int[][] boardState = new int[9][];
 
 	public GameObject designTilePrefab;
-
+	public GameObject Board;
    // ArrayList 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +21,10 @@ public class GameState : MonoBehaviour
             {
 				boardState[i][j] = (int)designTileState.EMPTY;
 
-				GameObject temp  = Instantiate(designTilePrefab, new Vector3(i, j, 0), Quaternion.identity);
+				GameObject temp  = Instantiate(designTilePrefab, new Vector3(i, j, 0), Quaternion.identity, Board.transform);
                 BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
 				temporary.gameState = this;
-				//temporary.boardPos = new Vector2Int(i, j);
+				temporary.boardPos = new Vector2Int(i, j);
 				// create a tile located at I,J
 
 			}
@@ -38,11 +38,11 @@ public class GameState : MonoBehaviour
 	public bool validDesign(Vector2Int shotPos)
 	{
 		Debug.Log(shotPos.x + " " + shotPos.y);
-		return true;
+		//return true;
 		if (initPlace)
 		{
 			/// check for one neighbor
-			return true;
+			//return true;
             if (tileTotal > 17)
 			{
 				return false;
@@ -69,7 +69,7 @@ public class GameState : MonoBehaviour
 					return true;
 			    }
 			if (shotPos.y < 8)
-				if (boardState[shotPos.x][shotPos.y + 8] == (int)designTileState.OCCUPIED)
+				if (boardState[shotPos.x][shotPos.y + 1] == (int)designTileState.OCCUPIED)
 				{
 					boardState[shotPos.x][shotPos.y] = (int)designTileState.OCCUPIED;
 					tileTotal++;
