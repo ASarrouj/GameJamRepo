@@ -225,6 +225,9 @@ public class GameState : MonoBehaviour
 
     public void initializeBattleScreen()
 	{
+
+		player = Battleship(boardState);
+		AI = Battleship(boardStateAI);
 		initBattle = true;
 	}
 	private bool initBattle = false;
