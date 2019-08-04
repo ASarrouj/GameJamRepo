@@ -35,4 +35,13 @@ public class Battleship
         }
         return false;
     }
+
+    public bool IsBattleshipDestroyed()
+    {
+        if (unhitTilesLeft <= 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }

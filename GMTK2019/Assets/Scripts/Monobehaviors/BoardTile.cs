@@ -9,6 +9,7 @@ public class BoardTile : MonoBehaviour
     public Vector2Int boardPos;
     private bool selected;
     private Color defaultColor;
+    public bool isPlayer;
 
     // Start is called before the first frame update
     void Start()
