@@ -9,6 +9,7 @@ public class Battleship
 
     public Battleship(int[][] boardState)
     {
+        Debug.Log("creating  a battleship");
         battleshipTiles = new List<BattleshipTile>();
         for (int i = 0; i < 9; i++)
         {
@@ -16,7 +17,9 @@ public class Battleship
             {
                 if (boardState[i][j] == 1)
                 {
+                    //Debug.Log("creating tile at" + i + " "+j);
                     battleshipTiles.Add(new BattleshipTile(new Vector2Int(i, j)));
+                    //Debug.Log("there are now " + battleshipTiles.Count + "tiles placed");
                 }
             }
         }
@@ -27,6 +30,8 @@ public class Battleship
     {
         foreach (BattleshipTile tile in battleshipTiles)
         {
+            Debug.Log(battleshipTiles.Count);
+            Debug.Log("checking tile..");
             if (tile.isHit(shotPos))
             {
                 unhitTilesLeft--;

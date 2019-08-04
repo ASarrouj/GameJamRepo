@@ -61,16 +61,17 @@ public class GameState : MonoBehaviour
 		int y = startPosY;
 		boardStateAI[startPosX][startPosY] = (int)designTileState.OCCUPIED;
 		int AITileTotal = 1;
-        while (AITileTotal < 17)
+        while (AITileTotal < 16)
 		{
-			int direction = Random.Range(0, 3);
+			int direction = Random.Range(0, 4);
             if (direction == 1)
 			{
                 if (x < 8)
 				{
 					x += 1;
-					if (boardStateAI[x][y] == (int)designTileState.OCCUPIED)
+					if (boardStateAI[x][y] == (int)designTileState.EMPTY)
 					{
+						Debug.Log("generating at"+  x + " " + y + " " + AITileTotal);
 						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
 						AITileTotal++;
 					}
@@ -85,8 +86,9 @@ public class GameState : MonoBehaviour
 				if (x > 0)
 				{
 					x -= 1;
-					if (boardStateAI[x][y] == (int)designTileState.OCCUPIED)
+					if (boardStateAI[x][y] == (int)designTileState.EMPTY)
 					{
+						Debug.Log("generating at" + x + " " + y + " " + AITileTotal);
 						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
 						AITileTotal++;
 					}
@@ -102,8 +104,9 @@ public class GameState : MonoBehaviour
 				if (y > 0)
 				{
 					y -= 1;
-					if (boardStateAI[x][y] == (int)designTileState.OCCUPIED)
+					if (boardStateAI[x][y] == (int)designTileState.EMPTY)
 					{
+						Debug.Log("generating at" +  x + " " + y + " " + AITileTotal);
 						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
 						AITileTotal++;
 					}
@@ -114,13 +117,14 @@ public class GameState : MonoBehaviour
 				}
 
 			}
-			else if (direction == 4)
+			else if (direction == 0)
 			{
 				if (y < 8)
 				{
 					y += 1;
-					if (boardStateAI[x][y] != (int)designTileState.OCCUPIED)
+					if (boardStateAI[x][y] == (int)designTileState.EMPTY)
 					{
+						Debug.Log("generating at" +  x + " " + y + " " + AITileTotal);
 						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
 						AITileTotal++;
 					}
@@ -268,6 +272,7 @@ public class GameState : MonoBehaviour
 
 			}
 		}
+		//return 0 ;
 	}
 	private bool initBattle = false;
 
@@ -286,7 +291,7 @@ public class GameState : MonoBehaviour
 		Debug.Log(shotPos.x + " " + shotPos.y);
 		///return true;
 		bool shotResult = AI.CheckIfShotHit(shotPos);
-		Debug.Log(shotResult);
+		//Debug.Log(shotResult);
 
         if (shotResult == true)
 		{

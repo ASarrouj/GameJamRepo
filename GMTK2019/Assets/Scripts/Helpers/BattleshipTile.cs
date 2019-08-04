@@ -15,6 +15,8 @@ public class BattleshipTile
 
     public bool isHit(Vector2Int shotPos)
     {
+        Debug.Log("this tile is At" + tilePos.x + " " + tilePos.y);
+        Debug.Log("this shot is At" + shotPos.x + " " + shotPos.y);
         if (shotPos == tilePos)
         {
             hitStatus = true;
@@ -23,6 +25,7 @@ public class BattleshipTile
         {
             hitStatus = false;
         }
+        Debug.Log("returning" + hitStatus);
         return hitStatus;
     }
 }

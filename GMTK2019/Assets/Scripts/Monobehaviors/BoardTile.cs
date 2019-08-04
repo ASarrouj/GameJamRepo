@@ -51,8 +51,8 @@ public class BoardTile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(boardPos.x + " " + boardPos.y);
-        Debug.Log(gameState.getGamePhase());
+        //Debug.Log(boardPos.x + " " + boardPos.y);
+        //Debug.Log(gameState.getGamePhase());
         if (gameState.getGamePhase() == (int)phase.DESIGN)
         {
             if (!selected)
