@@ -5,15 +5,15 @@ using UnityEngine;
 public class BattleshipTile
 {
 
-    Vector2 tilePos;
+    Vector2Int tilePos;
     bool hitStatus = false;
 
-    public BattleshipTile(Vector2 tilePos)
+    public BattleshipTile(Vector2Int tilePos)
     {
         this.tilePos = tilePos;
     }
 
-    public bool isHit(Vector2 shotPos)
+    public bool isHit(Vector2Int shotPos)
     {
         if (shotPos == tilePos)
         {

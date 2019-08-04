@@ -6,7 +6,7 @@ public class BoardTile : MonoBehaviour
 {
     public GameState gameState;
     private Transform tileSprite;
-    private Vector2 boardPos;
+    private Vector2Int boardPos;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class BoardTile : MonoBehaviour
         
     }
 
-    public void SetBoardPos(Vector2 boardPos)
+    public void SetBoardPos(Vector2Int boardPos)
     {
         this.boardPos = boardPos;
     }

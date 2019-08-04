@@ -13,7 +13,7 @@ public class Battleship
         unhitTilesLeft = 17;
     }
 
-    public bool CheckIfShotHit(Vector2 shotPos)
+    public bool CheckIfShotHit(Vector2Int shotPos)
     {
         foreach (BattleshipTile tile in battleshipTiles)
         {
