@@ -19,7 +19,7 @@ public class CameraManager : MonoBehaviour
         transitionTime = 0.0f;
         interpolating = false;
         originalPos = transform.position;
-        targetPos = new Vector3(8f, 0, -10f);
+        targetPos = new Vector3(8f, originalPos.y, -10f);
         CameraComponent = GetComponent<Camera>();
         originalOrthoSize = CameraComponent.orthographicSize;
         targetOrthoSize = 8f;
