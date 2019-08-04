@@ -33,11 +33,95 @@ public class GameState : MonoBehaviour
 
 			}
         }
-    }
+		generateAIBoard();
+
+	}
 	public int[][] boardStateAI = new int[9][];
 	public BoardTile[][] boardDisplayAI = new BoardTile[9][];
 
-	//void generateAIBoard();
+	void generateAIBoard()
+	{
+		int startPosX = Random.Range(0, 8);
+		int startPosY = Random.Range(0, 8);
+		int x = startPosX;
+		int y = startPosY;
+		boardStateAI[startPosX][startPosY] = (int)designTileState.OCCUPIED;
+		int AITileTotal = 1;
+        while (AITileTotal < 17)
+		{
+			int direction = Random.Range(0, 3);
+            if (direction == 1)
+			{
+                if (x < 8)
+				{
+					x += 1;
+					if (boardStateAI[x][y] == (int)designTileState.OCCUPIED)
+					{
+						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
+						AITileTotal++;
+					}
+				}
+                else
+				{
+					//pass;
+				}
+				
+			}else if (direction == 2)
+			{
+				if (x > 0)
+				{
+					x -= 1;
+					if (boardStateAI[x][y] == (int)designTileState.OCCUPIED)
+					{
+						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
+						AITileTotal++;
+					}
+				}
+				else
+				{
+					//pass;
+				}
+
+			}
+			else if (direction == 3)
+			{
+				if (y > 0)
+				{
+					y -= 1;
+					if (boardStateAI[x][y] == (int)designTileState.OCCUPIED)
+					{
+						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
+						AITileTotal++;
+					}
+				}
+				else
+				{
+					//pass;
+				}
+
+			}
+			else if (direction == 4)
+			{
+				if (y < 8)
+				{
+					y += 1;
+					if (boardStateAI[x][y] != (int)designTileState.OCCUPIED)
+					{
+						boardStateAI[x][y] = (int)designTileState.OCCUPIED;
+						AITileTotal++;
+					}
+				}
+				else
+				{
+					//pass;
+				}
+
+			}
+
+		}
+		Debug.Log("ai board initialized");
+		//
+	}
 
 	public bool initPlace = false;
 	int tileTotal = 0;
