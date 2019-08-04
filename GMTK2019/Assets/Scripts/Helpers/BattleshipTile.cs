@@ -19,6 +19,10 @@ public class BattleshipTile
         {
             hitStatus = true;
         }
+        else
+        {
+            hitStatus = false;
+        }
         return hitStatus;
     }
 }
