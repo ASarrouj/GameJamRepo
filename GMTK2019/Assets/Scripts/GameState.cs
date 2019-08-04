@@ -271,8 +271,22 @@ public class GameState : MonoBehaviour
 
     public bool isHit(Vector2Int shotPos)
 	{
+
+
 		return true;
-		//AI.CheckIfShotHit(shotPos.x, shotPos.y);
+		bool shotResult = AI.CheckIfShotHit(shotPos);
+        if (shotResult == true)
+		{
+			
+			bool win = false;
+			//AI check if win
+			if (win)
+			{
+				currentPhase = (int)phase.TITLE;
+			}
+
+		}
+
 	}
 
 
