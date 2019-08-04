@@ -14,6 +14,8 @@ public class GameState : MonoBehaviour
 	public GameObject Board;
     public Button submitButton, clearButton;
     public GameObject camera;
+    public GameObject tilesLeftText;
+    private TextMesh tilesLeftMesh;
     private CameraManager camManager;
 
    // ArrayList 
@@ -21,6 +23,7 @@ public class GameState : MonoBehaviour
     void Start()
     {
         camManager = camera.GetComponent<CameraManager>();
+        tilesLeftMesh = tilesLeftText.GetComponent<TextMesh>();
 		//boardState[i] = new int[9];
         for (int i =0; i < 9; i++)
         {
@@ -328,9 +331,8 @@ public class GameState : MonoBehaviour
 
 		}
 		else if (currentPhase == (int)phase.DESIGN)
-        {/// design a ship
-
-
+        {
+            tilesLeftMesh.text = "Tiles\nLeft: " + (17 - tileTotal);
 		}
 		else if (currentPhase == (int)phase.BATTLE)
         {
