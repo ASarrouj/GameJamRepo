@@ -279,9 +279,11 @@ public class GameState : MonoBehaviour
     public bool isHit(Vector2Int shotPos)
 	{
 
-
+		Debug.Log(shotPos.x + " " + shotPos.y);
 		///return true;
 		bool shotResult = AI.CheckIfShotHit(shotPos);
+		Debug.Log(shotResult);
+
         if (shotResult == true)
 		{
 
@@ -297,6 +299,8 @@ public class GameState : MonoBehaviour
 			return true;
 
 		}
+
+		boardDisplayAI[shotPos.x][shotPos.y].DisplayMiss();
 		return false;
 
 	}

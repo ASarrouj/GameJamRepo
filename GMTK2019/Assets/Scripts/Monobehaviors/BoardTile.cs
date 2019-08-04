@@ -40,6 +40,7 @@ public class BoardTile : MonoBehaviour
 
     public void DisplayMiss()
     {
+        //Debug.Log(" its a miss");
         xSprite.gameObject.SetActive(true);
     }
 
@@ -72,7 +73,11 @@ public class BoardTile : MonoBehaviour
             }*/
         }else if (gameState.getGamePhase() == (int)phase.BATTLE)
         {
-            gameState.isHit(boardPos);
+            if (isPlayer == false)
+            {
+                gameState.isHit(boardPos);
+            }
+           
         }
     }
 
