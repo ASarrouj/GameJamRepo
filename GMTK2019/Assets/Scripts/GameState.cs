@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
@@ -11,10 +12,15 @@ public class GameState : MonoBehaviour
 	public Battleship AI;
 	public GameObject designTilePrefab;
 	public GameObject Board;
+    public Button submitButton, clearButton;
+    public GameObject camera;
+    private CameraManager camManager;
+
    // ArrayList 
     // Start is called before the first frame update
     void Start()
     {
+        camManager = camera.GetComponent<CameraManager>();
 		//boardState[i] = new int[9];
         for (int i =0; i < 9; i++)
         {
@@ -214,7 +220,11 @@ public class GameState : MonoBehaviour
 			Debug.Log("submitted");
 			generateAIBoard();
 
-			currentPhase = (int)phase.BATTLE;
+            submitButton.gameObject.SetActive(false);
+            clearButton.gameObject.SetActive(false);
+            camManager.BeginInterpolation();
+
+            currentPhase = (int)phase.BATTLE;
 		}
 	}
 
@@ -242,7 +252,7 @@ public class GameState : MonoBehaviour
 				//boardState[i][j] = (int)designTileState.EMPTY;
 				//boardStateAI[i][j] = (int)designTileState.EMPTY;
 
-				GameObject temp = Instantiate(designTilePrefab, new Vector3(i - 4f  + 12f, j - 4f, 0), Quaternion.identity, Board.transform);
+				GameObject temp = Instantiate(designTilePrefab, new Vector3(i - 4f  + 16f, j - 4f, 0), Quaternion.identity, Board.transform);
 				BoardTile temporary = temp.GetComponent(typeof(BoardTile)) as BoardTile;
 				temporary.gameState = this;
 				temporary.boardPos = new Vector2Int(i, j);
