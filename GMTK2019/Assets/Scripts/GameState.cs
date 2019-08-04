@@ -392,13 +392,13 @@ public class GameState : MonoBehaviour
             if (AI.IsBattleshipDestroyed())
 			{
                 resultText.SetActive(true);
-                resultTextMesh.text = "Player\nWins";
+                resultTextMesh.text = "Player\nWins!";
 				currentPhase = (int)phase.END;
 			}
 			if (player.IsBattleshipDestroyed())
 			{
                 resultText.SetActive(true);
-                resultTextMesh.text = "AI\nWins";
+                resultTextMesh.text = "AI\nWins!";
                 currentPhase = (int)phase.END;
 			}
 
