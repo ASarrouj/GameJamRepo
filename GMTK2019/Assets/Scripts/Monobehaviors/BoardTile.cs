@@ -9,7 +9,7 @@ public class BoardTile : MonoBehaviour
     public Vector2Int boardPos;
     private bool selected;
     private Color defaultColor;
-    public bool isPlayer;
+    public bool isPlayer, isShot;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class BoardTile : MonoBehaviour
         powSprite = transform.Find("HitEffect").GetComponent<SpriteRenderer>();
         defaultColor = new Color(tileSprite.color.r, tileSprite.color.g, tileSprite.color.b);
         selected = false;
+        isShot = false;
     }
 
     // Update is called once per frame
@@ -73,8 +74,10 @@ public class BoardTile : MonoBehaviour
             }*/
         }else if (gameState.getGamePhase() == (int)phase.BATTLE)
         {
-            if (isPlayer == false)
+            if (!isPlayer && !isShot && gameState.isPlayerTurn)
             {
+                gameState.isPlayerTurn = false;
+                isShot = true;
                 gameState.isHit(boardPos);
             }
            

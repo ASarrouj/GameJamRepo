@@ -17,6 +17,7 @@ public class GameState : MonoBehaviour
     public GameObject tilesLeftText;
     private TextMesh tilesLeftMesh;
     private CameraManager camManager;
+    public bool isPlayerTurn;
 
    // ArrayList 
     // Start is called before the first frame update
@@ -234,6 +235,7 @@ public class GameState : MonoBehaviour
             clearButton.gameObject.SetActive(false);
             camManager.BeginInterpolation();
 
+            isPlayerTurn = true;
             currentPhase = (int)phase.BATTLE;
 		}
 	}
