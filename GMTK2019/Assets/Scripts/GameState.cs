@@ -269,8 +269,9 @@ public class GameState : MonoBehaviour
 
 
 
-    public isHit(Vector2INT  shotPos)
+    public bool isHit(Vector2Int shotPos)
 	{
+		return true;
 		//AI.CheckIfShotHit(shotPos.x, shotPos.y);
 	}
 
