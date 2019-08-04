@@ -23,7 +23,7 @@ public class Battleship
                 }
             }
         }
-        unhitTilesLeft = 17;
+        unhitTilesLeft = 16;
     }
 
     public bool CheckIfShotHit(Vector2Int shotPos)
