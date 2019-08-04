@@ -322,7 +322,23 @@ public class GameState : MonoBehaviour
 	{
 		
 		Vector2Int shotPos = new Vector2Int(Random.Range(0, 8), Random.Range(0, 8));
-		player.CheckIfShotHit(shotPos);
+		if (player.CheckIfShotHit(shotPos))
+		{
+			boardDisplay[shotPos.x][shotPos.y].DisplayHit();
+
+			bool win = player.IsBattleshipDestroyed();
+			//AI check if win
+			if (win)
+			{
+				//currentPhase = (int)phase.TITLE;
+			}
+
+			return true;
+		}
+		else
+		{
+			boardDisplay[shotPos.x][shotPos.y].DisplayMiss();
+		}
 		return true;
 	}
 
