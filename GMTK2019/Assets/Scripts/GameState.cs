@@ -256,6 +256,15 @@ public class GameState : MonoBehaviour
 
     enum phase { TITLE, DESIGN, BATTLE}
 
+
+
+
+    public isHit(Vector2INT  shotPos)
+	{
+		//AI.CheckIfShotHit(shotPos.x, shotPos.y);
+	}
+
+
     private int currentPhase = (int) phase.TITLE;
 
     // Update is called once per frame
