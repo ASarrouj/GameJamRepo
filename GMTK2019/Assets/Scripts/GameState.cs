@@ -281,7 +281,7 @@ public class GameState : MonoBehaviour
         if (shotResult == true)
 		{
 
-			//boardDisplayAI[shotPos.x][shotPos.y].DisplayHit();
+			boardDisplayAI[shotPos.x][shotPos.y].DisplayHit();
 
 			bool win = AI.IsBattleshipDestroyed();
 			//AI check if win
@@ -298,7 +298,18 @@ public class GameState : MonoBehaviour
 	}
 
 
-    public int currentPhase = (int) phase.TITLE;
+
+    public bool AIMove()
+	{
+		int X = Random.Range(0, 8);
+		int Y = Random.Range(0, 8);
+
+		return true;
+	}
+
+
+
+    public int currentPhase = (int) phase.DESIGN;
 
     // Update is called once per frame
     void Update()
